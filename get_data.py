@@ -16,6 +16,7 @@ def get_data(json, date_format):
         earliest_date = earliest_date.strftime('%Y-%m-%d')
     else:
         earliest_date = json_df['transaction_date'].iloc[-1]
+        earliest_date = (datetime.strptime(earliest_date, '%Y-%m-%d') - timedelta(days=20)).strftime('%Y-%m-%d')
     today = pd.Timestamp("today").strftime('%Y-%m-%d')
     data = yf.download(ticker_str, start=earliest_date, end=today)
     return data
