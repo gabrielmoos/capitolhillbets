@@ -15,7 +15,8 @@ def get_dics():
     
     Note: Currently the current_dic doesn't usually have middle inital
     whereas the former dic does.
-    Also, dictionary values are a list with a single element
+    Also, dictionary values are a list with a single element due to how
+    the pandas to_dict method works
     '''
     current_dic = scrape_wiki(current_senators, 5)
     former_dic = scrape_wiki(former_senators, 2)
