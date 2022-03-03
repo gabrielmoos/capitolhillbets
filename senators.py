@@ -8,17 +8,27 @@ def scrape_wiki(url, table_num):
     '''
     '''
     df = pd.read_html(url)[table_num][['State', "Senator"]]
-    return df.set_index("Senator").T.to_dict("list")
+    dic = df.set_index("Senator").T.to_dict("list")
+
+    return dic
 
 def get_dics():
     '''
     
     Note: Currently the current_dic doesn't usually have middle inital
-    whereas the former dic does.
+    whereas the former dic does. I have to fix this
     Also, dictionary values are a list with a single element due to how
     the pandas to_dict method works
     '''
     current_dic = scrape_wiki(current_senators, 5)
     former_dic = scrape_wiki(former_senators, 2)
 
-    return current_dic, former_dic
+    master_dic = dict()
+
+    for key, v in current_dic.items():
+        master_dic[key] = v[0]
+    
+    for key, v in former_dic.items():
+        master_dic[key] = v[0]
+
+    return master_dic
