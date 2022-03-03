@@ -29,6 +29,7 @@ def get_dics():
         master_dic[key] = v[0]
     
     for key, v in former_dic.items():
+        #should I take out the middle names here
         master_dic[key] = v[0]
 
     return master_dic
