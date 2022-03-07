@@ -7,7 +7,7 @@ former_senators = "https://en.wikipedia.org/wiki/List_of_former_United_States_se
 def scrape_wiki(url, table_num):
     '''
     '''
-    df = pd.read_html(url)[table_num][['State', "Senator"]]
+    df = pd.read_html(url)[table_num][["Party", "State", "Senator"]]
     dic = df.set_index("Senator").T.to_dict("list")
 
     return dic
@@ -23,13 +23,8 @@ def get_dics():
     current_dic = scrape_wiki(current_senators, 5)
     former_dic = scrape_wiki(former_senators, 2)
 
-    master_dic = dict()
+    #merge dictionaries 
+    master_dic = current_dic | former_dic
 
-    for key, v in current_dic.items():
-        master_dic[key] = v[0]
-    
-    for key, v in former_dic.items():
-        #should I take out the middle names here
-        master_dic[key] = v[0]
 
     return master_dic
