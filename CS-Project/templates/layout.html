@@ -3,6 +3,23 @@
     <head>
         <title>Flask app</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+        <style>
+            .button {
+              background-color: #04AA6D; /* Green */
+              border: none;
+              color: white;
+              padding: 20px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+            }
+            .button2 {border-radius: 12px;}
+            .button5 {border-radius: 50%;}
+            </style>
       </head>
   <body>
     <header>
@@ -12,6 +29,8 @@
           <ul class="menu">
             <li><a href="{{ url_for('home') }}">Project</a></li>
             <li><a href="{{ url_for('about') }}">Project Description</a></li>
+            <li><a href="{{ url_for('test') }}">Test Page</a></li>
+            <li><a href="{{ url_for('map') }}">Map</a></li>
           </ul>
         </nav></strong>
       </div>
