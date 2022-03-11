@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Capitol Hill Bets</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.dropbtn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+
+#myInput {
+  box-sizing: border-box;
+  background-image: url('searchicon.png');
+  background-position: 14px 12px;
+  background-repeat: no-repeat;
+  font-size: 16px;
+  padding: 14px 20px 12px 45px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+}
+
+#myInput:focus {outline: 3px solid #ddd;}
+
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  overflow: auto;
+  max-height: 300px;
+  min-height: 300px;
+  min-width: 230px;
+}
+
+.dropdown-content {
+  display: none;
+  position: relative;
+  top: 30px;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  overflow: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+.dropdown-content option {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown option:hover {background-color: #ddd;}
+
+.show {display: block;}
+
+* { box-sizing: border-box; }
+
+body {
+  font: 16px Arial;
+}
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+input {
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+}
+input[type=text] {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+input[type=submit] {
+  background-color: DodgerBlue;
+  color: #fff;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important;
+  color: #ffffff;
+}
+.carousel-control.left {
+  background: transparent;
+  margin-left: -30px;
+  bottom: -30px;
+}
+.carousel-control.right {
+  background: transparent;
+  margin-right: -30px;
+  bottom: -30px;
+
+}
+
+.carousel {
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: 300px;
+}
+
+
+.carousel-indicators li {
+  background-color: #999;
+  background-color: rgba(70, 70, 70, 0.25);
+  bottom: -3px;
+}
+
+.carousel-indicators .active {
+  background-color: #444;
+}
+
+.iframe {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3 class="w3-padding-64"><b>Capitol Hill<br>Bets</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+    <a href="#intro" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Intro</a>
+    <a href="#analysis" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Graphics</a> 
+    <a href="#senate" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Senate</a> 
+    <a href="#house" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">House</a> 
+    <a href="#filter" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Filter</a> 
+    <a href="#conclusion" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Conclusion</a>
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Capitol Hill Bets</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Header -->
+  <div class="w3-container" style="margin-top:80px" id="intro">
+    <h1 class="w3-jumbo"><b>Capitol Hill Bets</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Intro</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Welcome to Zach Mariani's, Gabe Moos's, Aarsh Kak's, and Marcus GP's final project! 
+      <br>
+      <br>We are very interested in whether or not members of both chambers of government, the House of Representatives and the Senate have access to 
+      higher quality information than everyone else and can use this to trade!
+      <br>
+      <br> Of course, we, nor do most other people, know exactly the information which the politicians have access to, nor the exact moment that they gain access to it. 
+      What we do have is disclosures from <a href="https://housestockwatcher.com/">House Stock Watcher</a> and <a href="https://senatestockwatcher.com/">Senate Stock Watcher</a> which are ever so kindly prepared, stored, 
+      and cleaned for projects just like ours. These sites prepare difficult to manage scanned PDF filings of disclosures and turn them into easy to manage JSON files. 
+      From here, our team used publically available stock adjusted close prices and volumes from Yahoo!Finance to try to see how their timing compared to what happened in the market. 
+      We have three metrics of interest for you today:
+    </p>
+    <ol>
+      <li>Count: the number of trades which were recorded per politician</li>
+      <li>Accuracy: the average price movement of their trades one week after they make them <br> i.e. a score of 0.01 would imply that on average, one week after the politician bought or sold the stock, the stock moved 1% in their favor</li>
+      <li>Volume: the ratio of the stock's volume one week after their trade to one week before their trade <br> i.e. a score of 1 means that the stock's weekly average volume the week following their trade was exactly the same as the week before, a score of 2 means that the stock's average trading volume one week after their trade was 2x higher than it was the week before their trade. This might imply that they had information before the rest of the market.</li>
+    </ol>
+
+    <p>Below, you will have a guided exploration of the data, broken into sections discussing the Senate and then the House. 
+      
+      
+      <br><br> 
+
+      The data and graphics here are whatever was loaded last. Please select a metric below from one of the three options to update the graphics.
+      
+      <p>
+
+    
+    <br><br>
+
+  <form class="metric" method="POST" action="/#analysis">  
+    <select class="metric" id="metricSelector" type="text" name="metric" placeholder="Select A Metric To Analyze">
+         <option disabled selected>Select A Metric To Analyze</option>
+         <option id="count" value="count">Count</option>
+         <option id="accuracy" value="accuracy">Accuracy</option>
+         <option id="volume" value="volume">Volume</option>
+    </select>
+    <input class="btn" type="submit" value="submit">
+  </form>
+  </div><br><br>
+
+  
+  <!-- Photo grid (modal) -->
+  <div class="w3-row-padding">
+    <div class="w3">
+      <img src="{{url_for('static', filename='nancy_meme.png')}}" width="45%" height="50%"/>
+      <img src="{{url_for('static', filename='WSB.png')}}" width="45%" height="50%" />
+    </div>
+
+    <div class="w3">
+    </div>
+  </div>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <!-- Analysis Block -->
+  <div class="w3-container" id="analysis" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Graphics.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+
+    <div class="container">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="static"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+    
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="{{url_for('static', filename='SENATE.jpeg')}}" height="500px" width="100%"/>
+          </div>
+    
+          <div class="item">
+            <img src="{{url_for('static', filename='HOUSE.jpeg')}}" height="500px" width="100%"/>
+          </div>
+
+          <div class="item">
+            <iframe src="http://127.0.0.1:5000/house_histogram/" height="500px" width="90%" title="histo1">
+            </iframe>
+          </div>
+
+          <div class="item">
+            <iframe src="http://127.0.0.1:5000/senate_histogram/" height="500px" width="90%" title="histo2">
+            </iframe>
+          </div>
+    
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" style="color:blue"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" style="color:blue"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- Senate Block -->
+  <div class="w3-container" id="senate" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Senate.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p><strong>Check out our senate data!</p><br><br>
+
+    <div class="w3-half"><b>Senate Winners</b></div>
+    <div class="w3-half-bottom"><b>Senate Losers</b></div>
+
+    <iframe src="http://127.0.0.1:5000/senate_winners/" height="43%" width="43%" title="senate_winners">
+    </iframe>
+
+    <iframe src="http://127.0.0.1:5000/senate_losers/" height="43%" width="43%" title="senate_losers">
+    </iframe>
+    <br><br>
+
+    <iframe src="http://127.0.0.1:5000/SENATE_map/" height="500px" width="100%" title="Map 1">
+    </iframe>
+  
+  </div>
+
+  <!-- House Block -->
+  <div class="w3-container" id="house" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>House.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p><strong>Check out our house data!</p><br><br>
+
+    <div class="w3-half"><b>House Winners</b></div>
+    <div class="w3-half-bottom"><b>House Losers</b></div>
+
+    <iframe src="http://127.0.0.1:5000/house_winners/" height="43%" width="43%" title="house_winners">
+    </iframe>
+
+    <iframe src="http://127.0.0.1:5000/house_losers/" height="43%" width="43%" title="house_losers">
+    </iframe>
+    <br><br>
+    <iframe src="http://127.0.0.1:5000/HOUSE_map/" height="500px" width="100%" title="Map 1">
+    </iframe>    
+
+  </div>
+
+
+  <!-- Packages / Pricing Tables -->
+  <div class="w3-container" id="filter" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Filter.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>You may filter below for a representative or senator of interest by chamber and state!</p>
+  
+  </div>
+
+
+  <div class="w3-row-padding">
+    <div class="w3-margin-bottom">
+      <ul class="w3-ul w3-light-grey w3-center">
+
+        <form class="chamber" method="POST" action="/#filter">  
+
+          <select class="chamber" id="chamber" type="text" name="chamber" placeholder="Select a Chamber">
+               <option disabled selected>Select a Chamber </option>
+               <option id="House" value="House">House</option>
+               <option id="Senate" value="Senate">Senate</option>
+          </select>
+
+          <select class="state" id="state" type="text" name="state" placeholder="Select a State">
+            <option disabled selected>Select a State </option>
+            <option id ='Alabama' value="Alabama">Alabama</option>
+            <option id ='Alaska' value="Alaska">Alaska</option>
+            <option id='Arizona' value="Arizona">Arizona</option>
+            <option id='Arkansas' value="Arkansas">Arkansas</option>
+            <option id='California' value="California">California</option>
+            <option id='Colorado' value="Colorado">Colorado</option>
+            <option id='Connecticut' value="Connecticut">Connecticut</option>
+            <option id='Delaware' value="Delaware">Delaware</option>
+            <option id='Florida' value="Florida">Florida</option>
+            <option id='Georgia' value="Georgia">Georgia</option>
+            <option id='Hawaii' value="Hawaii">Hawaii</option>
+            <option id='Idaho' value="Idaho">Idaho</option>
+            <option id='Illinois' value="Illinois">Illinois</option>
+            <option id='Indiana' value="Indiana">Indiana</option>
+            <option id='Iowa' value="Iowa">Iowa</option>
+            <option id='Kansas' value="Kansas">Kansas</option>
+            <option id='Kentucky' value="Kentucky">Kentucky</option>
+            <option id='Louisiana' value="Louisiana">Louisiana</option>
+            <option id='Maine' value="Maine">Maine</option>
+            <option id='Maryland' value="Maryland">Maryland</option>
+            <option id='Massachusetts' value="Massachusetts">Massachusetts</option>
+            <option id='Michigan' value="Michigan">Michigan</option>
+            <option id='Minnesota' value="Minnesota">Minnesota</option>
+            <option id='Mississippi' value="Mississippi">Mississippi</option>
+            <option id='Missouri' value="Missouri">Missouri</option>
+            <option id='Montana' value="Montana">Montana</option>
+            <option id='Nebraska' value="Nebraska">Nebraska</option>
+            <option id='Nevada' value="Nevada">Nevada</option>
+            <option id='New Hampshire' value="New Hampshire">New Hampshire</option>
+            <option id='New Jersey' value="New Jersey">New Jersey</option>
+            <option id='New Mexico' value="New Mexico">New Mexico</option>
+            <option id='New York' value="New York">New York</option>
+            <option id='North Carolina' value="North Carolina">North Carolina</option>
+            <option id='North Dakota' value="North Dakota">North Dakota</option>
+            <option id='Ohio' value="Ohio">Ohio</option>
+            <option id='Oklahoma' value="Oklahoma">Oklahoma</option>
+            <option id='Oregon' value="Oregon">Oregon</option>
+            <option id='Pennsylvania' value="Pennsylvania">Pennsylvania</option>
+            <option id='Rhode Island' value="Rhode Island">Rhode Island</option>
+            <option id='South Carolina' value="South Carolina">South Carolina</option>
+            <option id='South Dakota' value="South Dakota">South Dakota</option>
+            <option id='Tennessee' value="Tennessee">Tennessee</option>
+            <option id='Texas' value="Texas">Texas</option>
+            <option id='Utah' value="Utah">Utah</option>
+            <option id='Vermont' value="Vermont">Vermont</option>
+            <option id='Virginia' value="Virginia">Virginia</option>
+            <option id='Washington' value="Washington">Washington</option>
+            <option id='West Virginia' value="West Virginia">West Virginia</option>
+            <option id='Wisconsin' value="Wisconsin">Wisconsin</option>
+            <option id='Wyoming' value="Wyoming">Wyoming</option>
+               
+          </select>
+
+          <input class="btn" type="submit" value="submit">
+        </form>
+
+
+
+        <br><br>
+
+     
+        <iframe src="http://127.0.0.1:5000/filter/" height="100%" width="100%" title="Filter">
+        </iframe>
+        
+      </head>
+
+        </script>
+    </body> 
+
+
+
+
+       
+      <div class="w3-row-padding">
+      
+      
+           
+    </div>
+  </div>
+
+  <!--Update Data-->
+  <div class="w3-container" id="refreshdata" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Refresh Data</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Do you want to update the data? <br> Be very careful, this process takes ~10-20 minutes 
+    depending on your wifi speeds!</p>
+    <form method='POST' action = '/#conclusion' id='refresh_data'>
+      <input class="btn" type='submit' value='Refresh Data' name ='btt_name' id='refresh_data'/>
+    </form>
+      
+  </div>
+  
+  
+  <!-- Conclusion -->
+  <div class="w3-container" id="conclusion" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Conclusion.</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Thank you for taking the time to explore our project! If you have any questions, comments, or feedback, please reach out to us at 
+      <a href = "mailto:zmariani18@uchicago.edu">Zach Mariani</a> or <a href = "mailto:gabrielmoos@uchicago.edu">Gabe Moos</a>
+
+      <br><br>
+
+      From our work above, it is difficult to arrive at a firm conclusion. We would assume that in bull markets, the volume score would be very close to one and the accuracy score would be close to zero but very slightly positive. In bear markets, you might see accuracy scores below zero with volume scores maybe a bit higher than one given panic selling. What is clear, is that the median politician does not trade much, and when they do, across both parties, they have rather remarkably unimpressive results. The mean Democrat in the Senate and in the House is above the median volume, but typically very close to an accuracy score of zero. Please note that our graph uses fixed bounds so some outliers are heavily impacting the scores which you cannot see in the frame - they are more easily visible in the dynamic histograms. It is also worth noting that across both chambers, Democrats trade more than their Republican counterparts, or at least as is recorded in our filings. This may be because Democrats are more likely to represent urban or richer areas on average. 
+
+      <br><br>
+
+      It is however surprising and perhaps illuminating that the mean House Republican and mean Senate Democrat are markedly better than the medians. Given that the sample size is so small, this might imply that there are a couple of lucky traders in each chamber or certain members are privy to information that other members are not. 
+
+      <br><br>
+
+      Given more time and access to higher quality data, we would have liked to explore (i) the relationship between the information 
+      that politicians have access to and the stocks they trade. For instance, looking at whether the people on certain committees like 
+      Agriculture or HHS trade farming or biotech stocks, and if so, how they do. (ii) It would have been nice to look at how the relationship 
+      between the mean and median congressional trader compares to the average American. It is difficult to gauge how remarkable these 
+      relationships are with reference to how the rest of America does. This could be extended to traders in institutions or hedge funds. 
+      Also, it would have been interesting to look at whether a politician has trading habits closer to a retail investor or an institution.
+      Analysis here would prove very challenging given the lack of access to data. 
+      
+      <br><br>
+      
+      It is clear from this research 
+      and the maps that are generated that there is many missing data. Some districts / states are missing data altogether, 
+      and for some, there are very, very few trades. 
+      We could have tried to find a more robust entry of trades somewhere, however, given what we were able to find, 
+      we do not think that there is a better collection available than 
+      what we found with House and Senate stockwatcher. We would have also liked to have been able to filter out some of the data for very few entries. There are times when the numbers are quite large 
+      which makes it difficult to draw any reasonable conclusions i.e. a politician had 1 trade that went up 10% in a week! Lucky? Or insider knowledge? 
+
+    </p>
+
+  </div>
+
+<!-- End page content -->
+</div>
+
+<!-- W3.CSS Container -->
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">University of Chicago</p></div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+</body>
+</html>
