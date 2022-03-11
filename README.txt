@@ -1,4 +1,4 @@
-Hello and welcome to Zach and Gabe’s CS122 Final Project! 
+Hello and welcome to Capitol Hill Bet's CS122 Final Project! 
 In this file you can find information about the other files in the folder as well as information on how to run our project ! 
 
 In the order they are used in the project: 
